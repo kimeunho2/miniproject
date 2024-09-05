@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>온라인 광고 순이익 계산기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .highlight {
+            background-color: #ffcccc;
+        }
+    </style>
+</head>
+<body>
+    <h2>온라인 광고 순이익 계산기</h2>
+    <table id="calculatorTable">
+        <thead>
+            <tr>
+                <th>상품명</th>
+                <th>판매가</th>
+                <th>원가</th>
+                <th>광고비</th>
+                <th>전환수</th>
+                <th>매출</th>
+                <th>ROAS</th>
+                <th>ROI</th>
+                <th>순이익</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" class="product-name" placeholder="상품명"></td>
+                <td><input type="number" class="selling-price" placeholder="판매가"></td>
+                <td><input type="number" class="cost-price" placeholder="원가"></td>
+                <td><input type="number" class="ad-spend" placeholder="광고비"></td>
+                <td><input type="number" class="conversions" placeholder="전환수"></td>
+                <td class="sales">0 원</td>
+                <td class="roas">0%</td>
+                <td class="roi">0%</td>
+                <td class="net-profit">0 원</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button id="add-row-btn">행 추가</button>
+    <button id="calculate-btn">계산하기</button>
+
+    <script src="./asd.js"></script>
+</body>
+</html>
