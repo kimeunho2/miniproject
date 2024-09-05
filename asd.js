@@ -16,9 +16,9 @@ const netProfit = document.querySelector(".net-profit");
 const calculateButton = document.getElementById("calculate-btn");
 
 
-// const getSales = (sellingPrice, conversions) => {
-//     return sellingPrice * conversions;
-// } 
+const getSales = (sellingPrice, conversions) => {
+    return sellingPrice * conversions;
+} 
 
 // const getRoas = (salesResult, adspend) => {
 //     return salesResult / adspend * 100;
@@ -53,14 +53,7 @@ const calculateButton = document.getElementById("calculate-btn");
 // });
 
 
-// 판매가의 모든 열을 가져오기
-const sellingPriceAllEl = document.querySelectorAll(".selling-price"); 
 
-// 전환수의 모든 열 가져오기
-const conversionsAllEl = document.querySelectorAll(".conversions");
-
-// 매출의 모든 열 가져오기
-const salesAllEl = document.querySelector(".sales");
 
 // 판매가 * 전환수 계산하는 함수
 const getSaleAll = (a, b) => {
@@ -68,17 +61,38 @@ const getSaleAll = (a, b) => {
 }
 
 
-const sellingPriceAll = 
-
 
 //계산하기 버튼 클릭 시 실행되는 함수
 calculateButton.addEventListener("click", () => {
-   
-    const salesAllResult = getSaleAll(sellingPriceAllEl.value, conversionsAllEl.value)
+    
+    const sellingPriceEls = document.querySelectorAll(".selling-price");
+    const conversionsEls = document.querySelectorAll(".conversions");
+    const salesEls = document.querySelectorAll(".sales");
+
+    for (let i = 0; i < sellingPriceEls.length; i++) {
+
+    const sellingPrices = sellingPriceEls[i];
+    const conversions = conversionsEls[i];
+    const sales = salesEls[i];
+    
+
+    const salesResult = getSaleAll(sellingPrices.value, conversions.value);
+
+    sales.innerText = salesResult + " 원";
+    }
 
 
+    // 판매가의 모든 열을 가져오기
 
-    salesAllEl.innerText = salesAllResult 
+    const salesList = []
+
+  
+
+    
+    
+
+      
+    
 })
 
 
@@ -139,5 +153,4 @@ addrowButton.addEventListener("click", () => {
     newRow.insertCell(7).className = "roi";    // ROI
     newRow.insertCell(8).className = "net-profit"; // 순이익
 });
-
 
