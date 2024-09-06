@@ -20,37 +20,38 @@ const getSales = (sellingPrice, conversions) => {
     return sellingPrice * conversions;
 } 
 
-// const getRoas = (salesResult, adspend) => {
-//     return salesResult / adspend * 100;
-// }
+const getRoas = (salesResult, adspend) => {
+    return salesResult / adspend * 100;
+}
 
-// const getRoi = (constPrice, conversions, adspend) => {
-//     return constPrice * conversions / adspend * 100;
-// }
+const getRoi = (constPrice, conversions, adspend) => {
+    return constPrice * conversions / adspend * 100;
+}
 
-// const getNetprofit = (salesResult, adspend) => {
-//     return salesResult-adspend;
-// }
+const getNetprofit = (salesResult, adspend) => {
+    return salesResult-adspend;
+}
 
-// //계산하기 버튼 클릭 시 실행되는 함수
-// calculateButton.addEventListener("click", () => {
-//     const salesResult = getSales(sellingPriceEl.value, conversionsEl.value);
+//계산하기 버튼 클릭 시 실행되는 함수
+calculateButton.addEventListener("click", () => {
+    const salesResult = getSales(sellingPriceEl.value, conversionsEl.value);
     
-//     const roasResult = getRoas(salesResult, adspendEl.value);
+    const roasResult = getRoas(salesResult, adspendEl.value);
 
-//     const roiResult = getRoi(constPriceEl.value, conversionsEl.value, adspendEl.value );
+    const roiResult = getRoi(constPriceEl.value, conversionsEl.value, adspendEl.value );
 
-//     const netProfitresult = getNetprofit(salesResult, adspendEl.value);
+    const netProfitresult = getNetprofit(salesResult, adspendEl.value);
     
     
     
     
     
-//     salesEl.innerText = salesResult + " 원";   
-//     roasEl.innerText = (roasResult ?roasResult:0) + "%";
-//     roiEl.innerText = (roiResult ?roiResult:0)+ "%";
-//     netProfit.innerText = netProfitresult + " 원";
-// });
+    
+    salesEl.innerText = salesResult + " 원";   
+    roasEl.innerText = (roasResult ?roasResult:0) + "%";
+    roiEl.innerText = (roiResult ?roiResult:0)+ "%";
+    netProfit.innerText = netProfitresult + " 원";
+});
 
 
 
@@ -68,17 +69,36 @@ calculateButton.addEventListener("click", () => {
     const sellingPriceEls = document.querySelectorAll(".selling-price");
     const conversionsEls = document.querySelectorAll(".conversions");
     const salesEls = document.querySelectorAll(".sales");
+    const adSpendEls = document.querySelectorAll(".ad-spend");
+    const roasEls = document.querySelectorAll(".roas");
+    const roiEls = document.querySelectorAll(".roi");
+    const costpriceEls = document.querySelectorAll(".cost-price");
+    const netProfitEls = document.querySelectorAll(".net-profit")
 
     for (let i = 0; i < sellingPriceEls.length; i++) {
 
     const sellingPrices = sellingPriceEls[i];
     const conversions = conversionsEls[i];
     const sales = salesEls[i];
+    const adSpend = adSpendEls[i];
+    const roas = roasEls[i];
+    const rois = roiEls[i];
+    const costprices = costpriceEls[i];
+    const netprofit = netProfitEls[i];
     
 
     const salesResult = getSaleAll(sellingPrices.value, conversions.value);
+    
+    const roasResult = getRoas(salesResult, adSpend.value);
+    
+    const roiResult = getRoi(costprices.value, conversions.value, adSpend.value );
+
+    const netprofitresult = getNetprofit (salesResult, adSpend.value);
 
     sales.innerText = salesResult + " 원";
+    roas.innerText = roasResult + "%";
+    rois.innerText = roiResult + "%";
+    netprofit.innerText = netprofitresult + " 원";
     }
 
 
